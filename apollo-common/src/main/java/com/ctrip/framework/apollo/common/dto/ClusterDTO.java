@@ -1,7 +1,8 @@
 package com.ctrip.framework.apollo.common.dto;
 
 import com.ctrip.framework.apollo.common.utils.InputValidator;
-import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.validation.constraints.Pattern;
 
 public class ClusterDTO extends BaseDTO{

@@ -1,12 +1,12 @@
 @echo off
 
 rem apollo config db info
-set apollo_config_db_url="jdbc:mysql://localhost:3306/ApolloConfigDB?characterEncoding=utf8"
+set apollo_config_db_url="jdbc:mysql://nuke-adapter-uat-db-cluster.cluster-czahiwwi6rzh.us-west-2.rds.amazonaws.com/apolloconfigdb?useUnicode=true&characterEncoding=UTF-8&useSSL=false"
 set apollo_config_db_username="root"
 set apollo_config_db_password="derbysoft"
 
 rem apollo portal db info
-set apollo_portal_db_url="jdbc:mysql://localhost:3306/ApolloPortalDB?characterEncoding=utf8"
+set apollo_portal_db_url="jdbc:mysql://10.200.1.185:3306/ApolloPortalDB?characterEncoding=utf8"
 set apollo_portal_db_username="root"
 set apollo_portal_db_password="derbysoft"
 
@@ -18,7 +18,7 @@ set pro_meta="http://yetAnotherIp:8080"
 
 set META_SERVERS_OPTS=-Ddev_meta=%dev_meta% -Dfat_meta=%fat_meta% -Duat_meta=%uat_meta% -Dpro_meta=%pro_meta%
 
-rem =============== Please do not modify the following content =============== 
+rem =============== Please do not modify the following content ===============
 rem go to script directory
 cd "%~dp0"
 

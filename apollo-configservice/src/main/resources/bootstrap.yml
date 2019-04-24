@@ -2,8 +2,9 @@ eureka:
   instance:
     hostname: ${hostname:localhost}
     preferIpAddress: true
-    status-page-url-path: /info
-    health-check-url-path: /health
+    status-page-url-path: /apollo/info
+    health-check-url-path: /apollo/health
+    home-page-url-path: /apollo
   server:
     peerEurekaNodesUpdateIntervalMs: 60000
     enableSelfPreservation: false

@@ -1,12 +1,12 @@
 @echo off
 
 rem apollo config db info
-set apollo_config_db_url="jdbc:mysql://localhost:3306/ApolloConfigDB?characterEncoding=utf8"
+set apollo_config_db_url="jdbc:mysql://10.200.1.185:3306/ApolloConfigDB_DEV?characterEncoding=utf8"
 set apollo_config_db_username="root"
 set apollo_config_db_password="derbysoft"
 
 rem apollo portal db info
-set apollo_portal_db_url="jdbc:mysql://localhost:3306/ApolloPortalDB?characterEncoding=utf8"
+set apollo_portal_db_url="jdbc:mysql://10.200.1.185:3306/ApolloPortalDB?characterEncoding=utf8"
 set apollo_portal_db_username="root"
 set apollo_portal_db_password="derbysoft"
 
