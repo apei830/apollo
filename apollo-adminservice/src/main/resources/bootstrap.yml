@@ -2,8 +2,9 @@ eureka:
   instance:
     hostname: ${hostname:localhost}
     preferIpAddress: true
-    status-page-url-path: /info
-    health-check-url-path: /health
+    status-page-url-path: /apollo-adminservice/info
+    health-check-url-path: /apollo-adminservice/health
+    home-page-url-path: /apollo-adminservice
   client:
     serviceUrl:
       # This setting will be overridden by eureka.service.url setting from ApolloConfigDB.ServerConfig or System Property
