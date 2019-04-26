@@ -3,7 +3,6 @@ package com.ctrip.framework.apollo.portal.controller;
 import com.ctrip.framework.apollo.common.dto.ReleaseDTO;
 import com.ctrip.framework.apollo.common.exception.BadRequestException;
 import com.ctrip.framework.apollo.common.exception.NotFoundException;
-import com.ctrip.framework.apollo.common.utils.RequestPrecondition;
 import com.ctrip.framework.apollo.core.enums.Env;
 import com.ctrip.framework.apollo.portal.component.PermissionValidator;
 import com.ctrip.framework.apollo.portal.component.config.PortalConfig;
@@ -12,26 +11,15 @@ import com.ctrip.framework.apollo.portal.entity.model.NamespaceReleaseModel;
 import com.ctrip.framework.apollo.portal.entity.vo.ReleaseCompareResult;
 import com.ctrip.framework.apollo.portal.listener.ConfigPublishEvent;
 import com.ctrip.framework.apollo.portal.service.ReleaseService;
-import javax.validation.Valid;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
-
-import static com.ctrip.framework.apollo.common.utils.RequestPrecondition.checkModel;
 
 @Validated
 @RestController
@@ -118,8 +106,8 @@ public class ReleaseController {
                                          @PathVariable String env,
                                          @PathVariable String clusterName,
                                          @PathVariable String namespaceName,
-                                         @Valid @PositiveOrZero(message = "page should be positive or 0") @RequestParam(defaultValue = "0") int page,
-                                         @Valid @Positive(message = "size should be positive number") @RequestParam(defaultValue = "5") int size) {
+                                         @Valid @RequestParam(defaultValue = "0") int page,
+                                         @Valid @RequestParam(defaultValue = "5") int size) {
     if (permissionValidator.shouldHideConfigToCurrentUser(appId, env, namespaceName)) {
       return Collections.emptyList();
     }
@@ -132,8 +120,8 @@ public class ReleaseController {
                                              @PathVariable String env,
                                              @PathVariable String clusterName,
                                              @PathVariable String namespaceName,
-                                             @Valid @PositiveOrZero(message = "page should be positive or 0") @RequestParam(defaultValue = "0") int page,
-                                             @Valid @Positive(message = "size should be positive number") @RequestParam(defaultValue = "5") int size) {
+                                             @Valid @RequestParam(defaultValue = "0") int page,
+                                             @Valid @RequestParam(defaultValue = "5") int size) {
 
     if (permissionValidator.shouldHideConfigToCurrentUser(appId, env, namespaceName)) {
       return Collections.emptyList();

@@ -17,7 +17,7 @@ server:
     use-relative-redirects: true
 
 logging:
-  file: /opt/logs/100003173/apollo-portal.log
+  file: /usr/local/logs/apollo-portal.log
 
 management:
   health:
